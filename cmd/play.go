@@ -17,5 +17,9 @@ var playCmd = &cobra.Command{
 	Long:  `Beat the dealer living in your terminal. Play a game of blackjack.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println(ascii.GetTitle())
+		deck := ascii.GetDeck()
+		for _, card := range deck {
+			fmt.Println(card)
+		}
 	},
 }
