@@ -1,5 +1,9 @@
 package ascii
 
+import (
+	"fmt"
+)
+
 var title = `                                    		 .------.
     ____  __           __     _            __    |A.--. |
    / __ )/ /___ ______/ /__  (_)___ ______/ /__  | (\.------.
@@ -148,4 +152,15 @@ func GetDeck() [][]string {
 
 func GetHidden() []string {
 	return hidden
+}
+
+func PrintHand(hand [][]string) {
+	spacer := "   "
+
+	for i := 0; i < len(hand[0]); i++ {
+		for j := 0; j < len(hand); j++ {
+			fmt.Print(hand[j][i] + spacer)
+		}
+		fmt.Println()
+	}
 }

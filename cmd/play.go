@@ -18,8 +18,7 @@ var playCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println(ascii.GetTitle())
 		deck := ascii.GetDeck()
-		for _, card := range deck {
-			fmt.Println(card)
-		}
+		var hand = [][]string{deck[0], deck[1]}
+		ascii.PrintHand(hand)
 	},
 }
