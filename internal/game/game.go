@@ -6,7 +6,7 @@ import (
 	"github.com/balinwarren/blackjack/internal/ascii"
 )
 
-func GenerateHand() [][]string {
+func GenerateHand() []ascii.Card {
 	deck := ascii.GetDeck()
-	return [][]string{deck[rand.IntN(14)], deck[rand.IntN(14)]}
+	return []ascii.Card{deck[rand.IntN(14)], deck[rand.IntN(14)]}
 }
