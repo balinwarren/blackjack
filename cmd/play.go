@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/balinwarren/blackjack/internal/ascii"
+	"github.com/balinwarren/blackjack/internal/game"
 	"github.com/spf13/cobra"
 )
 
@@ -17,8 +18,7 @@ var playCmd = &cobra.Command{
 	Long:  `Beat the dealer living in your terminal. Play a game of blackjack.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println(ascii.GetTitle())
-		deck := ascii.GetDeck()
-		var hand = [][]string{deck[0], deck[1], deck[7]}
+		var hand = game.GenerateHand()
 		ascii.PrintHand(hand)
 	},
 }
