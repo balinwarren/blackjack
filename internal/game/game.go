@@ -1,6 +1,7 @@
 package game
 
 import (
+	"fmt"
 	"math/rand/v2"
 
 	"github.com/balinwarren/blackjack/internal/ascii"
@@ -8,18 +9,22 @@ import (
 
 var deck []ascii.Card = ascii.GetDeck()
 
-var DealerHand []ascii.Card
-var PlayerHand []ascii.Card
+var dealerHand []ascii.Card
+var playerHand []ascii.Card
 
-func StartGame() ([]ascii.Card, []ascii.Card) {
+func StartGame() {
+	fmt.Println(ascii.GetTitle())
 
-	DealerHand = GenerateHand()
-	PlayerHand = GenerateHand()
+	dealerHand = generateHand()
+	playerHand = generateHand()
 
-	return DealerHand, PlayerHand
+	ascii.PrintHand([]ascii.Card{dealerHand[0], ascii.GetHidden()})
+	fmt.Print("\n\n\n\n\n")
+	ascii.PrintHand(playerHand)
+
 }
 
-func GenerateHand() []ascii.Card {
+func generateHand() []ascii.Card {
 	return []ascii.Card{deck[rand.IntN(13)], deck[rand.IntN(13)]}
 }
 

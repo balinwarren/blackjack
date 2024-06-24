@@ -1,9 +1,6 @@
 package cmd
 
 import (
-	"fmt"
-
-	"github.com/balinwarren/blackjack/internal/ascii"
 	"github.com/balinwarren/blackjack/internal/game"
 	"github.com/spf13/cobra"
 )
@@ -17,10 +14,6 @@ var playCmd = &cobra.Command{
 	Short: "Start a game of blackjack.",
 	Long:  `Beat the dealer living in your terminal. Play a game of blackjack.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(ascii.GetTitle())
-		player, dealer := game.StartGame()
-		ascii.PrintHand([]ascii.Card{dealer[0], ascii.GetHidden()})
-		fmt.Print("\n\n\n\n\n")
-		ascii.PrintHand(player)
+		game.StartGame()
 	},
 }
