@@ -8,8 +8,18 @@ import (
 
 var deck []ascii.Card = ascii.GetDeck()
 
+var DealerHand []ascii.Card
+var PlayerHand []ascii.Card
+
+func StartGame() ([]ascii.Card, []ascii.Card) {
+	DealerHand = GenerateHand()
+	PlayerHand = GenerateHand()
+
+	return DealerHand, PlayerHand
+}
+
 func GenerateHand() []ascii.Card {
-	return []ascii.Card{deck[rand.IntN(14)], deck[rand.IntN(14)]}
+	return []ascii.Card{deck[rand.IntN(13)], deck[rand.IntN(13)]}
 }
 
 func DrawCard() ascii.Card {
