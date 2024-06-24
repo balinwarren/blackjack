@@ -19,7 +19,8 @@ var playCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println(ascii.GetTitle())
 		player, dealer := game.StartGame()
-		ascii.PrintHand(dealer)
+		ascii.PrintHand([]ascii.Card{dealer[0], ascii.GetHidden()})
+		fmt.Print("\n\n\n\n\n")
 		ascii.PrintHand(player)
 	},
 }

@@ -175,13 +175,16 @@ var king = Card{
 	Value: []int{10},
 }
 
-var hidden = []string{
-	".------.",
-	"|******|",
-	`|**/\**|`,
-	`|*(__)*|`,
-	`|*'--'*|`,
-	"`------'",
+var hidden = Card{
+	Art: []string{
+		".------.",
+		"|******|",
+		`|**/\**|`,
+		`|*(__)*|`,
+		`|*'--'*|`,
+		"`------'",
+	},
+	Value: []int{0},
 }
 
 var deck = []Card{ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king}
@@ -194,12 +197,12 @@ func GetDeck() []Card {
 	return deck
 }
 
-func GetHidden() []string {
+func GetHidden() Card {
 	return hidden
 }
 
 func PrintHand(hand []Card) {
-	spacer := "   "
+	spacer := "  "
 
 	for i := 0; i < len(hand[0].Art); i++ {
 		for j := 0; j < len(hand); j++ {

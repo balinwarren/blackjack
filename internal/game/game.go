@@ -12,6 +12,7 @@ var DealerHand []ascii.Card
 var PlayerHand []ascii.Card
 
 func StartGame() ([]ascii.Card, []ascii.Card) {
+
 	DealerHand = GenerateHand()
 	PlayerHand = GenerateHand()
 
