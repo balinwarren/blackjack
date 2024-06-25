@@ -21,7 +21,6 @@ func StartGame() {
 	ascii.PrintHand([]ascii.Card{dealerHand[0], ascii.GetHidden()})
 	fmt.Print("\n\n\n\n\n")
 	ascii.PrintHand(playerHand)
-
 }
 
 func generateHand() []ascii.Card {
@@ -29,5 +28,26 @@ func generateHand() []ascii.Card {
 }
 
 func DrawCard() ascii.Card {
-	return deck[rand.IntN(14)]
+	return deck[rand.IntN(13)]
+}
+
+func calcScore(hand []ascii.Card) {
+	aceCount := 0
+	score := 0
+
+	for _, c := range hand {
+		if c.Value[0] == 1 {
+			aceCount++
+		} else {
+			score += c.Value[0]
+		}
+	}
+
+	for i := 0; i < aceCount; i++ {
+		if score+11 <= 21 {
+			score += 11
+		} else {
+			score += 1
+		}
+	}
 }
