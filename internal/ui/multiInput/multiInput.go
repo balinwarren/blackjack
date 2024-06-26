@@ -2,6 +2,7 @@ package multiinput
 
 import (
 	"fmt"
+	"os"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
@@ -41,6 +42,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
 		switch msg.String() {
+		case "ctrl+c", "q":
+			os.Exit
+			return m, tea.Quit
 		case "left":
 			if m.cursor > 0 {
 				m.cursor--
