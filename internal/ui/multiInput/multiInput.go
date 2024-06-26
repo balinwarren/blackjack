@@ -16,7 +16,6 @@ type model struct {
 	choices  []string
 	cursor   int
 	selected map[int]struct{}
-	choice   *Selection
 }
 
 type Selection struct {
@@ -31,11 +30,10 @@ func (m model) Init() tea.Cmd {
 	return nil
 }
 
-func InitialModelMulti(choices []string, selection *Selection) model {
+func InitialModelMulti(choices []string) model {
 	return model{
 		choices:  choices,
 		selected: make(map[int]struct{}),
-		choice:   selection,
 	}
 }
 
